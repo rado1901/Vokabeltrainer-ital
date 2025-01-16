@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokabeltrainer - by Ralf Domres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="trainer">
+        <h1>Vokabeltrainer - by Ralf Domres</h1>
+        <div id="question-container">
+            <p id="question">Lade Vokabeln...</p>
+        </div>
+        <div id="solution-container">
+            <p id="solution" style="visibility: hidden;">Übersetzung wird angezeigt...</p>
+        </div>
+        <div id="progress">
+            <p id="progress-text">Fortschritt: 0 richtig, 0 falsch</p>
+            <div id="progress-bar">
+                <div id="progress-bar-inner"></div>
+            </div>
+        </div>
+        <div id="controls">
+            <button onclick="showSolution()">Übersetze</button>
+            <button onclick="markCorrect()">Kann ich</button>
+            <button onclick="markWrong()">Kann ich nicht</button>
+            <button onclick="playAudio()">🔊</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Fortschrittsvariablen
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        // Funktion: Fortschrittsanzeige aktualisieren
+        function updateProgress() {
+            const totalAnswers = correctAnswers + incorrectAnswers;
+            const progressPercent = totalAnswers > 0 ? (correctAnswers / totalAnswers) * 100 : 0;
+            const progressBar = document.getElementById("progress-bar-inner");
+
+            progressBar.style.width = `${progressPercent}%`;
+            document.getElementById("progress-text").textContent = `Fortschritt: ${correctAnswers} richtig, ${incorrectAnswers} falsch`;
+        }
+
+        // Aktionen bei Klick auf "Kann ich"
+        function markCorrect() {
+            correctAnswers++;
+            updateProgress();
+            selectNextVocab(); // Diese Funktion kommt aus der generierten script.js
+        }
+
+        // Aktionen bei Klick auf "Kann ich nicht"
+        function markWrong() {
+            incorrectAnswers++;
+            updateProgress();
+            selectNextVocab(); // Diese Funktion kommt aus der generierten script.js
+        }
+
+        // Beim Laden des Trainers
+        document.addEventListener("DOMContentLoaded", () => {
+            updateProgress(); // Fortschritt initialisieren
+        });
+    </script>
+</body>
+</html>

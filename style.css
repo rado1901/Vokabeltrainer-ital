@@ -1,0 +1,163 @@
+/* Allgemeine Stile */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#trainer {
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Frage- und Lösungskästen */
+#question-container, #solution-container {
+    border: 2px solid #ccc;
+    background-color: #f5f5f5;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#question-container {
+    border: 2px solid #4CAF50;
+    background-color: #e8f5e9;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+#solution-container {
+    border: 2px solid #ccc;
+    background-color: #f5f5f5;
+    color: #555;
+    font-weight: bold;
+}
+
+#solution {
+    color: #555;
+}
+
+/* Fortschrittsanzeige */
+#progress {
+    margin: 20px 0;
+    font-size: 1em;
+    color: #777;
+}
+
+#progress-bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+}
+
+#progress-bar-inner {
+    height: 100%;
+    background: #4CAF50;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* Buttons */
+button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+button:nth-child(2) {
+    background-color: #4CAF50; /* Grün für "Kann ich" */
+}
+
+button:nth-child(2):hover {
+    background-color: #45a049;
+}
+
+button:nth-child(2):active {
+    background-color: #388e3c;
+}
+
+button:nth-child(3) {
+    background-color: #ff5722; /* Rot für "Kann ich nicht" */
+}
+
+button:nth-child(3):hover {
+    background-color: #e64a19;
+}
+
+button:nth-child(3):active {
+    background-color: #d84315;
+}
+
+button:nth-child(1) {
+    background-color: #ccc; /* Grau für \"Übersetze\" */
+    color: #333;
+}
+
+button:nth-child(1):hover {
+    background-color: #bbb;
+}
+
+button:nth-child(1):hover {
+    background-color: #bbb;
+}
+
+
+
+button:nth-child(1):hover {
+    background-color: #bbb;
+}
+
+/* Responsives Design */
+@media (max-width: 600px) {
+    #trainer {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #question-container, #solution-container {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
